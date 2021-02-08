@@ -2,6 +2,7 @@ import logging
 import subprocess
 from inference.environment import HostEnvironment
 
+
 env = HostEnvironment()
 logger = logging.getLogger(__name__)
 
@@ -21,12 +22,17 @@ def _launch_gunicorn():
                                         "--worker-connections", str(1000 * env.server_worker_num),
                                         "-w", str(env.server_worker_num),
                                         "inference.wsgi:app"]).pid
+
+    logger.info("PID: {}, Inference Engine Started.".format(gunicorn_pid))
+    
     return gunicorn_pid
 
 
 def startInference():
     gunicorn_pid = _launch_gunicorn()
+    logger.info("Inference Engine PID: {}".format(gunicorn_pid))
 
+    
 
 if __name__ == '__main__':
     try:
