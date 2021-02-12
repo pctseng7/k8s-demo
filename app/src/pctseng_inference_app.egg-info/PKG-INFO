@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: pctseng-inference-app
+Version: 0.0.1
+Summary: A model server flask app
+Home-page: https://github.com/pctseng7/k8s-demo
+Author: Po-Chuan(Gary) Tseng
+Author-email: pctseng7@gmail.com
+License: UNKNOWN
+Description: AI Backend Flask app
+Keywords: inference-app
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5

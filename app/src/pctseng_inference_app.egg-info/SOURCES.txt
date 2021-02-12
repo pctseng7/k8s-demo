@@ -1,0 +1,15 @@
+MANIFEST.in
+requirements.txt
+setup.cfg
+setup.py
+src/inference/__init__.py
+src/inference/app_server.py
+src/inference/environment.py
+src/inference/serve.py
+src/inference/wsgi.py
+src/pctseng_inference_app.egg-info/PKG-INFO
+src/pctseng_inference_app.egg-info/SOURCES.txt
+src/pctseng_inference_app.egg-info/dependency_links.txt
+src/pctseng_inference_app.egg-info/not-zip-safe
+src/pctseng_inference_app.egg-info/requires.txt
+src/pctseng_inference_app.egg-info/top_level.txt
