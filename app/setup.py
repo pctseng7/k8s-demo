@@ -26,6 +26,7 @@ setup(
     long_description='AI Backend Flask app',
     keywords='inference-app',
     packages=find_packages("src",exclude= ['test']),
+    scripts=['serve'],
     include_package_data=True,
     package_dir={"": "src"},
     test_suite='tests',

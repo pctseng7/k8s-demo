@@ -22,6 +22,7 @@ class Server(object):
             'Description': 'Patient has high risk falling in the next 15 mins',
             'Probability': 0.95678
         }
+        logging.debug("k8s-demo: Infer API being hit!")
         return Response(response=json.dumps(output), status=200, content_type="application/json")
 
     def _listModel(self):
@@ -38,5 +39,6 @@ class Server(object):
                 'Description': 'Patient has high risk falling in the next 30 mins'
             }
         ]
+        logging.debug("k8s-demo: view-loaded-models API being hit!")
         return Response(response=json.dumps(output), status=200, content_type="application/json")
 
