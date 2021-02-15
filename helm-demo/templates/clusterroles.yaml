@@ -1,0 +1,19 @@
+{{- if .Values.clusterrole }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ template "k8s-demo.serviceAccountName" . }}
+  labels:
+    app: {{ template "k8s-demo.name" . }}
+    chart: {{ template "k8s-demo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+- apiGroups:
+  resources:
+  resourceNames:
+  - {{ template "k8s-demo.fullname" . }}
+  verbs:
+  - use
+  - list
+{{- end }}

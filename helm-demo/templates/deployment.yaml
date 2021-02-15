@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "k8s-demo.fullname" . }}
+  labels:
+    app: {{ template "k8s-demo.name" . }}
+    chart: {{ template "k8s-demo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- if .Values.additionalAnnotations }}
+  annotations:
+{{ toYaml .Values.additionalAnnotations | trimSuffix "\n" | indent 4 }}
+{{- end }}
+spec:
+  strategy:
+    type: {{ .Values.DeploymentUpdate.type }}
+  selector:
+    matchLabels:
+      app: {{ template "k8s-demo.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      name: {{ template "k8s-demo.fullname" . }}
+      labels:
+        app: {{ template "k8s-demo.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repositoryTag }}

@@ -1,0 +1,65 @@
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repositoryTag: k8s-demo-0218:0.0.1
+
+## Additional labels to include with deployment or statefulset
+additionalLabels: []
+
+## Additional annotations to include with deployment or statefulset
+additionalAnnotations: []
+
+## Additional arguments to pass to minio binary
+extraArgs: []
+
+## Update strategy for Deployments
+DeploymentUpdate:
+  type: RollingUpdate
+
+## Add configmap
+configmap: false
+
+## Add clusterrole
+clusterrole: false
+
+## Enable persistence using Persistent Volume Claims
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+##
+persistence:
+  enabled: false
+  storageClass: ""
+  VolumeName: ""
+  accessMode: ReadWriteOnce
+  capacity: 500Gi
+
+## Expose the service to be accessed from outside the cluster (LoadBalancer service).
+## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
+## ref: http://kubernetes.io/docs/user-guide/services/
+##
+
+service:
+  type: NodePort
+  port:
+    name: http
+    clusterIP: ~
+    port: 9000
+    nodePort: 30305
+    targetPort: 8080
+
+  annotations: {}
+
+
+## Node labels for pod assignment
+## Ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+
+## If 'create' is set to 'false' and 'name' is left unspecified, the account 'default' will be used.
+serviceAccount:
+  create: false
+  name:
