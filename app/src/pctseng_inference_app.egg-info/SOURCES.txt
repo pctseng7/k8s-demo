@@ -1,5 +1,6 @@
 MANIFEST.in
 requirements.txt
+serve
 setup.cfg
 setup.py
 src/inference/__init__.py
